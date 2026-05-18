@@ -2,6 +2,10 @@
 
 Este gestor de libros es una pequeña aplicaión hecha con Java, SQL y JavaFX.
 
+<img src="RegistroLecturas.PNG">
+
+<br>
+
 En ella se puede:
 
 - Añadir libros con sus características (título, autor, género...)
