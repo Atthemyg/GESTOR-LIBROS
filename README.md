@@ -1,6 +1,8 @@
-## Gestor de libros
+# Gestor de libros
 
 Este gestor de libros es una pequeña aplicaión hecha con Java, SQL y JavaFX.
+
+<br>
 
 <img src="RegistroLecturas.PNG">
 
