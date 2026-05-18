@@ -18,3 +18,9 @@ En ella se puede:
 - Añadir libros a favoritos
 - Añadir citas o notas a un libro
 - Ver tus estadísticas según tu total de libros, tus libros/autores favoritos...
+
+<br>
+
+Ejecutar la aplicación:
+
+``mvn javafx:run``
