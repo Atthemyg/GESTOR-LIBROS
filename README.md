@@ -29,3 +29,11 @@ Este gestor de libros es una pequeña aplicación hecha con Java, SQL y JavaFX.
 Ejecutar la aplicación:
 
 ``mvn javafx:run``
+
+<br>
+
+# 📖 Gestor de libros v2 📖 
+
+Tiene las mismas opciones que gestor de libros, pero se ha añadido una opción que cambia de tabla a cuadricula, permitiendo tener una visión más cómoda a la hora de realizar cualquier cambio o registro en un libro concreto.
+
+**RECOMENDACIÓN:** Añadir una url de portada desde ***Open Library***
