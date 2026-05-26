@@ -18,7 +18,7 @@ Este gestor de libros es una pequeña aplicación hecha con Java, SQL y JavaFX.
 
 ⭐ **Puntua libros con estrellas de 0-5**
 
-💗 **Añade libros a favoritos**
+💗 **Añade libros y autores a favoritos**
 
 📝 **Añade citas o notas**
 
@@ -26,14 +26,12 @@ Este gestor de libros es una pequeña aplicación hecha con Java, SQL y JavaFX.
 
 <br>
 
-Ejecutar la aplicación:
+**DESCARGA LA APP INSTALABLE V1.0 EN RELEASE**
+
+En caso de descargar el archivo zip, ejecutar la aplicación con:
 
 ``mvn javafx:run``
 
 <br>
 
-# 📖 Gestor de libros v2 📖 
-
-Tiene las mismas opciones que gestor de libros, pero se ha añadido una opción que cambia de tabla a cuadricula, permitiendo tener una visión más cómoda a la hora de realizar cualquier cambio o registro en un libro concreto.
-
-**RECOMENDACIÓN:** Añadir una url de portada desde ***Open Library***
+**RECOMENDACIÓN:** Añadir las url de portada desde ***Open Library***
