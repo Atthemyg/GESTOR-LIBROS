@@ -26,7 +26,7 @@ Este gestor de libros es una pequeña aplicación hecha con Java, SQL y JavaFX.
 
 <br>
 
-**DESCARGA LA APP INSTALABLE V1.0 EN RELEASE**
+**DESCARGA LA APP INSTALABLE 1.0 EN RELEASE**
 
 En caso de descargar el archivo zip, ejecutar la aplicación con:
 
