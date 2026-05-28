@@ -10,12 +10,17 @@ import java.io.IOException;
 
 public class PrincipalApplication extends Application {
 
-    /*@Override
+    @Override
     public void start(Stage stage) throws IOException {
+
+        System.out.println("INICIO APP");
+
         new DatabaseInitializer().inicializar();
+        System.out.println("DB OK");
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/fxml/principal.fxml"));
+
         Scene scene = new Scene(loader.load(), 1100, 720);
         scene.getStylesheets().add(
                 getClass().getResource("/css/estilos.css").toExternalForm());
@@ -29,28 +34,5 @@ public class PrincipalApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }*/
-
-     @Override
-public void start(Stage stage) throws IOException {
-
-    System.out.println("INICIO APP");
-
-    new DatabaseInitializer().inicializar();
-    System.out.println("DB OK");
-
-    System.out.println("FXML: " + getClass().getResource("/fxml/principal.fxml"));
-    System.out.println("CSS: " + getClass().getResource("/css/estilos.css"));
-
-    FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/fxml/principal.fxml"));
-
-    Scene scene = new Scene(loader.load(), 1100, 720);
-
-    var css = getClass().getResource("/css/estilos.css");
-    scene.getStylesheets().add(css.toExternalForm());
-
-    stage.setScene(scene);
-    stage.show();
-}
+    }
 }

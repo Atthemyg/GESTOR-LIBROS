@@ -29,7 +29,18 @@
                     maxWidth="Infinity" onAction="#mostrarFavoritos"
                     styleClass="nav-btn"/>
 
+            <!-- Empuja el bloque de backup al fondo -->
             <VBox VBox.vgrow="ALWAYS"/>
+
+            <!-- ── Sección de Backup ── -->
+            <Separator style="-fx-opacity:0.3;"/>
+            <Button fx:id="btnBackup" text="💾  Backup ahora"
+                    maxWidth="Infinity" onAction="#hacerBackupManual"
+                    styleClass="nav-btn, btn-backup"/>
+            <Label fx:id="lblBackupEstado" text=""
+                   styleClass="backup-estado"
+                   maxWidth="Infinity" wrapText="true"/>
+
             <Label text="Gestor de Libros v1.0" styleClass="sidebar-footer"/>
         </VBox>
     </left>

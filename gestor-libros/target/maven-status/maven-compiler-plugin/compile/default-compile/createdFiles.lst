@@ -24,6 +24,7 @@ gestor\libros\app\controller\FavoritosController.class
 gestor\libros\app\repository\interfaces\IAutorRepository.class
 gestor\libros\app\controller\AutoresController.class
 gestor\libros\app\model\Cita.class
+gestor\libros\app\service\BackupService.class
 gestor\libros\app\repository\interfaces\ILecturaRepository.class
 gestor\libros\database\sqlite\SQLiteConnectionManager.class
 gestor\libros\app\controller\LecturasController.class
