@@ -1,0 +1,330 @@
+/* ─── Variables de color ──────────────────────────────────────────────────── */
+.root {
+    -color-bg:         #F7F6F3;
+    -color-sidebar:    #1C1C1E;
+    -color-surface:    #FFFFFF;
+    -color-borde:      #E0DDD8;
+    -color-primario:   #4A90D9;
+    -color-peligro:    #E05252;
+    -color-texto:      #2C2C2E;
+    -color-texto-muted:#8E8E93;
+    -color-nav-activo: #4A90D9;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -color-bg;
+}
+
+/* ─── Sidebar ─────────────────────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: -color-sidebar;
+}
+
+.sidebar-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 8 0;
+}
+
+.sidebar-footer {
+    -fx-text-fill: #636366;
+    -fx-font-size: 11px;
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #AEAEB2;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #2C2C2E;
+    -fx-text-fill: white;
+}
+
+.nav-activo {
+    -fx-background-color: -color-nav-activo;
+    -fx-text-fill: white;
+}
+
+/* ─── Cabecera de vista ───────────────────────────────────────────────────── */
+.vista-header {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-borde;
+    -fx-border-width: 0 0 1 0;
+}
+
+.vista-titulo {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+/* ─── Contenido principal ────────────────────────────────────────────────── */
+.contenido-principal {
+    -fx-background-color: -color-bg;
+}
+
+/* ─── Botones ─────────────────────────────────────────────────────────────── */
+.btn-primario {
+    -fx-background-color: -color-primario;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 16 8 16;
+}
+
+.btn-primario:hover {
+    -fx-background-color: #3A7BC8;
+}
+
+.btn-secundario {
+    -fx-background-color: -color-borde;
+    -fx-text-fill: -color-texto;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 14 8 14;
+}
+
+.btn-secundario:hover {
+    -fx-background-color: #D0CEC9;
+}
+
+.btn-peligro {
+    -fx-background-color: -color-peligro;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 12 8 12;
+}
+
+.btn-peligro:hover {
+    -fx-background-color: #C04040;
+}
+
+.btn-accion {
+    -fx-background-color: #34C759;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 12 8 12;
+}
+
+/* ─── Formularios ─────────────────────────────────────────────────────────── */
+.panel-form {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-borde;
+    -fx-border-width: 0 0 0 1;
+}
+
+.form-titulo {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+.etiqueta {
+    -fx-text-fill: -color-texto-muted;
+    -fx-font-size: 12px;
+}
+
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: -color-bg;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10 6 10;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: -color-primario;
+}
+
+.campo-busqueda {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+/* ─── Tablas ──────────────────────────────────────────────────────────────── */
+.tabla-principal {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-borde;
+}
+
+.table-view .column-header {
+    -fx-background-color: #EFEEEB;
+    -fx-text-fill: -color-texto-muted;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #EAF3FC;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: -color-texto;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F2F1EE;
+}
+
+/* ─── Tarjetas de estadísticas ────────────────────────────────────────────── */
+.stat-card {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 16 8 16 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+
+.stat-label {
+    -fx-text-fill: -color-texto-muted;
+    -fx-font-size: 11px;
+}
+
+.stat-valor {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+.stat-leidos   { -fx-text-fill: #34C759; }
+.stat-progreso { -fx-text-fill: #FF9F0A; }
+.stat-pendiente{ -fx-text-fill: -color-texto-muted; }
+
+/* ─── ProgressBar ─────────────────────────────────────────────────────────── */
+.progress-bar .track {
+    -fx-background-color: -color-borde;
+    -fx-background-radius: 6;
+}
+
+.progress-bar .bar {
+    -fx-background-color: -color-primario;
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+}
+
+/* ─── Slider ──────────────────────────────────────────────────────────────── */
+.slider .thumb {
+    -fx-background-color: -color-primario;
+}
+
+.slider .track {
+    -fx-background-color: -color-borde;
+}
+
+/* ─── ScrollPane ──────────────────────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ─── SplitPane ───────────────────────────────────────────────────────────── */
+.split-pane-divider {
+    -fx-background-color: -color-borde;
+    -fx-padding: 0 1 0 1;
+}
+
+/* ─── TabPane ─────────────────────────────────────────────────────────────── */
+.tab-secundaria .tab-header-area .tab-header-background {
+    -fx-background-color: -color-bg;
+}
+
+.tab-secundaria .tab {
+    -fx-background-color: -color-bg;
+}
+
+.tab-secundaria .tab:selected {
+    -fx-background-color: -color-surface;
+}
+
+/* ─── Toggle de vista (tabla / cuadrícula) ────────────────────────────────── */
+.btn-toggle-vista {
+    -fx-background-color: -color-borde;
+    -fx-text-fill: -color-texto-muted;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+.btn-toggle-vista:hover {
+    -fx-background-color: #D0CEC9;
+    -fx-text-fill: -color-texto;
+}
+
+.btn-toggle-vista:selected {
+    -fx-background-color: -color-primario;
+    -fx-text-fill: white;
+}
+
+/* ─── Cuadrícula de portadas ──────────────────────────────────────────────── */
+.scroll-cuadricula {
+    -fx-background-color: -color-bg;
+}
+
+.scroll-cuadricula > .viewport {
+    -fx-background-color: -color-bg;
+}
+
+.flow-portadas {
+    -fx-background-color: -color-bg;
+}
+
+.portada-card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: -color-borde;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+
+.portada-card:hover {
+    -fx-border-color: -color-primario;
+    -fx-effect: dropshadow(gaussian, rgba(74,144,217,0.18), 10, 0, 0, 3);
+}
+
+.portada-card-selected {
+    -fx-border-color: -color-primario;
+    -fx-border-width: 2;
+    -fx-background-color: #EAF3FC;
+    -fx-effect: dropshadow(gaussian, rgba(74,144,217,0.25), 12, 0, 0, 4);
+}
+
+.portada-container {
+    -fx-background-color: #EFEEEB;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.portada-titulo {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.portada-autor {
+    -fx-font-size: 11px;
+    -fx-text-fill: -color-texto-muted;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}

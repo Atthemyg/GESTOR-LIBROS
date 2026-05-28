@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gestor.libros.app.controller.LecturasController">
+
+    <!-- ── Cabecera ── -->
+    <top>
+        <HBox styleClass="vista-header" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+            <Label text="📊 Lecturas" styleClass="vista-titulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Filtrar:" styleClass="etiqueta"/>
+            <ComboBox fx:id="cmbFiltroEstado" prefWidth="140"/>
+            <Button fx:id="btnNuevaLectura" text="＋ Nueva" onAction="#onNuevaLectura"
+                    styleClass="btn-primario"/>
+        </HBox>
+    </top>
+
+    <!-- ── Centro: tabla superior + notas/citas abajo ── -->
+    <center>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.45">
+
+            <!-- Tabla de lecturas -->
+            <TableView fx:id="tablaLecturas" styleClass="tabla-principal">
+                <columns>
+                    <TableColumn fx:id="colLibro"       text="Libro"        prefWidth="280"/>
+                    <TableColumn fx:id="colEstado"      text="Estado"       prefWidth="110"/>
+                    <TableColumn fx:id="colFechaInicio" text="Inicio"       prefWidth="100"/>
+                    <TableColumn fx:id="colFechaFin"    text="Fin"          prefWidth="100"/>
+                    <TableColumn fx:id="colPuntuacion"  text="Puntuación"   prefWidth="100"/>
+                </columns>
+                <placeholder><Label text="No hay lecturas registradas."/></placeholder>
+            </TableView>
+
+            <!-- Notas y citas con pestañas -->
+            <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="tab-secundaria">
+
+                <Tab text="📝 Notas">
+                    <SplitPane dividerPositions="0.55">
+                        <TableView fx:id="tablaNotas">
+                            <columns>
+                                <TableColumn fx:id="colNotaPagina"   text="Pág." prefWidth="60"/>
+                                <TableColumn fx:id="colNotaContenido" text="Nota" prefWidth="320"/>
+                            </columns>
+                            <placeholder><Label text="Sin notas."/></placeholder>
+                        </TableView>
+                        <VBox spacing="8">
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                            <Label text="Nueva nota" styleClass="form-titulo"/>
+                            <TextField fx:id="txtNotaPagina" promptText="Página (opcional)"/>
+                            <TextArea  fx:id="txtNota" promptText="Escribe tu nota…"
+                                       prefRowCount="5" wrapText="true" VBox.vgrow="ALWAYS"/>
+                            <HBox spacing="8">
+                                <Button text="💾 Guardar" onAction="#onGuardarNota"
+                                        styleClass="btn-primario" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                <Button text="🗑" onAction="#onEliminarNota"
+                                        styleClass="btn-peligro"/>
+                            </HBox>
+                        </VBox>
+                    </SplitPane>
+                </Tab>
+
+                <Tab text="💬 Citas">
+                    <SplitPane dividerPositions="0.55">
+                        <TableView fx:id="tablaCitas">
+                            <columns>
+                                <TableColumn fx:id="colCitaPagina" text="Pág." prefWidth="60"/>
+                                <TableColumn fx:id="colCitaTexto"  text="Cita" prefWidth="320"/>
+                            </columns>
+                            <placeholder><Label text="Sin citas."/></placeholder>
+                        </TableView>
+                        <VBox spacing="8">
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                            <Label text="Nueva cita" styleClass="form-titulo"/>
+                            <TextField fx:id="txtCitaPagina" promptText="Página (opcional)"/>
+                            <TextArea  fx:id="txtCita" promptText="Pega aquí el fragmento…"
+                                       prefRowCount="5" wrapText="true" VBox.vgrow="ALWAYS"/>
+                            <HBox spacing="8">
+                                <Button text="💾 Guardar" onAction="#onGuardarCita"
+                                        styleClass="btn-primario" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                <Button text="🗑" onAction="#onEliminarCita"
+                                        styleClass="btn-peligro"/>
+                            </HBox>
+                        </VBox>
+                    </SplitPane>
+                </Tab>
+
+            </TabPane>
+        </SplitPane>
+    </center>
+
+    <!-- ── Panel derecho: formulario de lectura ── -->
+    <right>
+        <ScrollPane fitToWidth="true" styleClass="panel-form" prefWidth="300">
+            <VBox spacing="10">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+
+                <Label text="Estado de lectura" styleClass="form-titulo"/>
+                <Separator/>
+
+                <Label text="Libro *" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbLibro" maxWidth="Infinity" promptText="Seleccionar…"/>
+
+                <Label text="Estado" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbEstado" maxWidth="Infinity"/>
+
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Página actual" styleClass="etiqueta"/>
+                        <TextField fx:id="txtPaginaActual" promptText="0"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Total páginas" styleClass="etiqueta"/>
+                        <TextField fx:id="txtTotalPaginas" promptText="0"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Barra de progreso -->
+                <ProgressBar fx:id="barProgreso" maxWidth="Infinity" progress="0"/>
+                <Label fx:id="lblProgreso" text="0%" styleClass="etiqueta"/>
+
+                <Label text="Fecha inicio" styleClass="etiqueta"/>
+                <DatePicker fx:id="dpFechaInicio" maxWidth="Infinity"/>
+
+                <Label text="Fecha fin" styleClass="etiqueta"/>
+                <DatePicker fx:id="dpFechaFin" maxWidth="Infinity"/>
+
+                <Label text="Puntuación" styleClass="etiqueta"/>
+                <Slider fx:id="sliderPuntuacion"/>
+                <Label fx:id="lblPuntuacion" text="0.0 ⭐"/>
+
+                <CheckBox fx:id="chkFavorito" text="⭐ Favorito"/>
+
+                <Separator/>
+
+                <HBox spacing="6">
+                    <Button fx:id="btnGuardarLectura" text="💾 Guardar"
+                            onAction="#onGuardarLectura" styleClass="btn-primario"
+                            HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <Button fx:id="btnEliminarLectura" text="🗑"
+                            onAction="#onEliminarLectura" styleClass="btn-peligro"/>
+                </HBox>
+                <Button fx:id="btnMarcarLeido" text="✅ Marcar como leído"
+                        onAction="#onMarcarLeido" maxWidth="Infinity"
+                        styleClass="btn-secundario"/>
+            </VBox>
+        </ScrollPane>
+    </right>
+
+</BorderPane>

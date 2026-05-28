@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gestor.libros.app.controller.AutoresController">
+
+    <!-- ── Cabecera ── -->
+    <top>
+        <HBox styleClass="vista-header" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+            <Label text="👤 Autores" styleClass="vista-titulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtBuscar" promptText="Buscar autor…" prefWidth="200"
+                       styleClass="campo-busqueda"/>
+            <Button text="✕" onAction="#onLimpiarBusqueda" styleClass="btn-secundario"/>
+            <ToggleButton fx:id="btnVistaCuadricula" text="⊞" styleClass="btn-toggle-vista"
+                          onAction="#onToggleVista" prefWidth="34" prefHeight="34"/>
+            <Button fx:id="btnNuevo" text="＋ Nuevo" onAction="#onNuevo"
+                    styleClass="btn-primario"/>
+        </HBox>
+    </top>
+
+    <!-- ── Contenido central (tabla o cuadrícula) ── -->
+    <center>
+        <StackPane fx:id="stackCentro">
+
+            <!-- Vista tabla -->
+            <TableView fx:id="tablaAutores" styleClass="tabla-principal">
+                <columns>
+                    <TableColumn fx:id="colNombre"       text="Nombre"       prefWidth="260"/>
+                    <TableColumn fx:id="colNacionalidad" text="Nacionalidad" prefWidth="180"/>
+                    <TableColumn fx:id="colFavorito"     text="Fav."         prefWidth="70"/>
+                </columns>
+                <placeholder><Label text="No hay autores registrados."/></placeholder>
+            </TableView>
+
+            <!-- Vista cuadrícula -->
+            <ScrollPane fx:id="scrollCuadricula" fitToWidth="true" visible="false" managed="false"
+                        styleClass="scroll-cuadricula">
+                <FlowPane fx:id="flowAutores" hgap="16" vgap="16"
+                          styleClass="flow-portadas">
+                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                </FlowPane>
+            </ScrollPane>
+
+        </StackPane>
+    </center>
+
+    <!-- ── Formulario ── -->
+    <right>
+        <ScrollPane fitToWidth="true" styleClass="panel-form" prefWidth="300">
+            <VBox spacing="10">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+
+                <Label text="Datos del autor" styleClass="form-titulo"/>
+                <Separator/>
+
+                <Label text="Nombre *" styleClass="etiqueta"/>
+                <TextField fx:id="txtNombre" promptText="Nombre completo"/>
+
+                <Label text="Nacionalidad" styleClass="etiqueta"/>
+                <TextField fx:id="txtNacionalidad" promptText="Ej: Española"/>
+
+                <Label text="URL de foto" styleClass="etiqueta"/>
+                <TextField fx:id="txtFotoUrl" promptText="https://…"/>
+
+                <Label text="Biografía" styleClass="etiqueta"/>
+                <TextArea fx:id="txtBiografia" promptText="Breve reseña biográfica…"
+                          prefRowCount="6" wrapText="true"/>
+
+                <CheckBox fx:id="chkFavorito" text="⭐ Autor favorito"/>
+
+                <Separator/>
+
+                <HBox spacing="8">
+                    <Button fx:id="btnGuardar" text="💾 Guardar"
+                            onAction="#onGuardar" styleClass="btn-primario"
+                            HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <Button fx:id="btnEliminar" text="🗑"
+                            onAction="#onEliminar" styleClass="btn-peligro"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </right>
+
+</BorderPane>

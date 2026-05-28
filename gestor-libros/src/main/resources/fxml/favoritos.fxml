@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gestor.libros.app.controller.FavoritosController">
+
+    <!-- ── Cabecera ── -->
+    <top>
+        <HBox styleClass="vista-header" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+            <Label text="⭐ Favoritos &amp; Estadísticas" styleClass="vista-titulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="🔄 Actualizar" onAction="#onRefrescar" styleClass="btn-secundario"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <!-- ── Tarjetas de estadísticas ── -->
+            <HBox spacing="16">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                    <Label text="Total libros" styleClass="stat-label"/>
+                    <Label fx:id="lblTotalLibros" text="0" styleClass="stat-valor"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                    <Label text="Leídos" styleClass="stat-label"/>
+                    <Label fx:id="lblLeidos" text="0" styleClass="stat-valor stat-leidos"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                    <Label text="En progreso" styleClass="stat-label"/>
+                    <Label fx:id="lblEnProgreso" text="0" styleClass="stat-valor stat-progreso"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="4">
+                    <Label text="Pendientes" styleClass="stat-label"/>
+                    <Label fx:id="lblPendientes" text="0" styleClass="stat-valor stat-pendiente"/>
+                </VBox>
+            </HBox>
+
+            <!-- ── Sección libros favoritos ── -->
+            <VBox spacing="8" VBox.vgrow="ALWAYS">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="📖 Libros favoritos" styleClass="form-titulo"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ToggleButton fx:id="btnVistaLibros" text="⊞" styleClass="btn-toggle-vista"
+                                  onAction="#onToggleVistaLibros" prefWidth="34" prefHeight="28"/>
+                </HBox>
+
+                <StackPane fx:id="stackLibros" prefHeight="220">
+                    <!-- Tabla libros -->
+                    <TableView fx:id="tablaLibrosFav">
+                        <columns>
+                            <TableColumn fx:id="colTitulo"     text="Título"      prefWidth="260"/>
+                            <TableColumn fx:id="colEstado"     text="Estado"      prefWidth="100"/>
+                            <TableColumn fx:id="colPuntuacion" text="Puntuación"  prefWidth="90"/>
+                        </columns>
+                        <placeholder><Label text="Ningún libro marcado como favorito."/></placeholder>
+                    </TableView>
+
+                    <!-- Cuadrícula libros -->
+                    <ScrollPane fx:id="scrollLibrosFav" fitToWidth="true"
+                                visible="false" managed="false" styleClass="scroll-cuadricula">
+                        <FlowPane fx:id="flowLibrosFav" hgap="16" vgap="16" styleClass="flow-portadas">
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                        </FlowPane>
+                    </ScrollPane>
+                </StackPane>
+            </VBox>
+
+            <!-- ── Sección autores favoritos ── -->
+            <VBox spacing="8" VBox.vgrow="ALWAYS">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="👤 Autores favoritos" styleClass="form-titulo"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ToggleButton fx:id="btnVistaAutores" text="⊞" styleClass="btn-toggle-vista"
+                                  onAction="#onToggleVistaAutores" prefWidth="34" prefHeight="28"/>
+                </HBox>
+
+                <StackPane fx:id="stackAutores" prefHeight="220">
+                    <!-- Tabla autores -->
+                    <TableView fx:id="tablaAutoresFav">
+                        <columns>
+                            <TableColumn fx:id="colNombre"       text="Nombre"       prefWidth="220"/>
+                            <TableColumn fx:id="colNacionalidad" text="Nacionalidad" prefWidth="160"/>
+                        </columns>
+                        <placeholder><Label text="Ningún autor marcado como favorito."/></placeholder>
+                    </TableView>
+
+                    <!-- Cuadrícula autores -->
+                    <ScrollPane fx:id="scrollAutoresFav" fitToWidth="true"
+                                visible="false" managed="false" styleClass="scroll-cuadricula">
+                        <FlowPane fx:id="flowAutoresFav" hgap="16" vgap="16" styleClass="flow-portadas">
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                        </FlowPane>
+                    </ScrollPane>
+                </StackPane>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

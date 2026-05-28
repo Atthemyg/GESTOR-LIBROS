@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gestor.libros.app.controller.LibrosController">
+
+    <!-- ── Cabecera ── -->
+    <top>
+        <HBox styleClass="vista-header" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+            <Label text="📖 Biblioteca" styleClass="vista-titulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtBuscar" promptText="Buscar por título…" prefWidth="220"
+                       styleClass="campo-busqueda"/>
+            <Button text="✕"  onAction="#onLimpiarBusqueda" styleClass="btn-secundario"/>
+            <!-- Toggle vista -->
+            <ToggleButton fx:id="btnVistaCuadricula" text="⊞" styleClass="btn-toggle-vista"
+                          onAction="#onToggleVista" prefWidth="34" prefHeight="34"/>
+            <Button fx:id="btnNuevo" text="＋ Nuevo" onAction="#onNuevo"
+                    styleClass="btn-primario"/>
+        </HBox>
+    </top>
+
+    <!-- ── Contenido central (tabla o cuadrícula) ── -->
+    <center>
+        <StackPane fx:id="stackCentro">
+
+            <!-- Vista tabla -->
+            <TableView fx:id="tablaLibros" styleClass="tabla-principal">
+                <columns>
+                    <TableColumn fx:id="colTitulo" text="Título"    prefWidth="280"/>
+                    <TableColumn fx:id="colAutor"  text="Autor"     prefWidth="200"/>
+                    <TableColumn fx:id="colGenero" text="Género"    prefWidth="130"/>
+                    <TableColumn fx:id="colAnio"   text="Año"       prefWidth="70"/>
+                    <TableColumn fx:id="colIsbn"   text="ISBN"      prefWidth="150"/>
+                </columns>
+                <placeholder><Label text="No hay libros registrados."/></placeholder>
+            </TableView>
+
+            <!-- Vista cuadrícula -->
+            <ScrollPane fx:id="scrollCuadricula" fitToWidth="true" visible="false" managed="false"
+                        styleClass="scroll-cuadricula">
+                <FlowPane fx:id="flowPortadas" hgap="16" vgap="16"
+                          styleClass="flow-portadas">
+                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                </FlowPane>
+            </ScrollPane>
+
+        </StackPane>
+    </center>
+
+    <!-- ── Panel lateral de formulario ── -->
+    <right>
+        <ScrollPane fitToWidth="true" styleClass="panel-form" prefWidth="320">
+            <VBox spacing="10">
+                <padding><Insets top="20" right="16" bottom="20" left="16"/></padding>
+
+                <Label text="Datos del libro" styleClass="form-titulo"/>
+                <Separator/>
+
+                <Label text="Título *" styleClass="etiqueta"/>
+                <TextField fx:id="txtTitulo" promptText="Título del libro"/>
+
+                <Label text="Autor" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbAutor" maxWidth="Infinity"
+                          promptText="Seleccionar autor…"/>
+
+                <Label text="ISBN" styleClass="etiqueta"/>
+                <TextField fx:id="txtIsbn" promptText="978-…"/>
+
+                <Label text="Año de publicación" styleClass="etiqueta"/>
+                <TextField fx:id="txtAnio" promptText="Ej: 1967"/>
+
+                <Label text="Género" styleClass="etiqueta"/>
+                <TextField fx:id="txtGenero" promptText="Ej: Novela, Ensayo…"/>
+
+                <Label text="URL de portada" styleClass="etiqueta"/>
+                <TextField fx:id="txtPortadaUrl" promptText="https://…"/>
+
+                <Label text="Sinopsis" styleClass="etiqueta"/>
+                <TextArea fx:id="txtSinopsis" promptText="Resumen del libro…"
+                          prefRowCount="4" wrapText="true"/>
+
+                <Separator/>
+
+                <HBox spacing="8">
+                    <Button fx:id="btnGuardar"  text="💾 Guardar"
+                            onAction="#onGuardar" styleClass="btn-primario"
+                            HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <Button fx:id="btnEliminar" text="🗑"
+                            onAction="#onEliminar" styleClass="btn-peligro"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </right>
+
+</BorderPane>
